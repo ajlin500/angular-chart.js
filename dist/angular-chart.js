@@ -224,6 +224,16 @@
     function convertColour (colour) {
       if (typeof colour === 'object' && colour !== null) return colour;
       if (typeof colour === 'string' && colour[0] === '#') return getColour(hexToRgb(colour.substr(1)));
+      if (typeof colour === 'string' && colour.substr(0, 3) === 'rgb') {
+        return {
+          fillColor: colour,
+          strokeColor: colour,
+          pointColor: colour,
+          pointStrokeColor: colour,
+          pointHighlightFill: colour,
+          pointHighlightStroke: colour,
+        };
+      }
       return getRandomColour();
     }
 
