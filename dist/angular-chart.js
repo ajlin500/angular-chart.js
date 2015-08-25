@@ -1,5 +1,14 @@
 (function (factory) {
   'use strict';
+  /*
+   * Since we're using Browserify, `exports` is an object. Yet requiring Angular
+   * 1.3.13 returns an empty object. At the same time, Chart.js isn't a browser
+   * global, so we need to `require` that Node-style.
+   */
+  // Browser globals
+  factory(angular, require('chart.js'));
+  return;
+
   if (typeof define === 'function' && define.amd) {
     // AMD. Register as an anonymous module.
     define(['angular', 'chart.js'], factory);
