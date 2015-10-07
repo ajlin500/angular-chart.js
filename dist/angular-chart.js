@@ -14,7 +14,7 @@
     define(['angular', 'chart.js'], factory);
   } else if (typeof exports === 'object') {
     // Node/CommonJS
-    module.exports = factory(require('angular'), require('chart.js'));
+    module.exports = factory(angular, require('chart.js'));
   } else {
     // Browser globals
     factory(angular, Chart);
